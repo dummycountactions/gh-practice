@@ -2,22 +2,10 @@ name: practice
 on: [push]
 jobs:
   version_control_repo:
-    # continue-on-error: true
     runs-on: ubuntu-latest
     steps:
       - name: checkout
         uses: actions/checkout@v3
   use_reusable:
     needs: version_control_repo
-    uses: "./.github/workflows/reusable.yml"
-      # - name: rus
-      #   uses: ./.github/workflows/reusable.yml
-  
-      # # - name: exec
-      # #   run: tsc main.ts && node main.js
-      # - name: file report on installation fault
-      #   run: echo "a failure has occured for NPM"
-      #   if: failure() && steps.mid.outcome == 'failure'
-      # # - name: file report on ts runtime fault
-      # #   if: steps.exec.conclusion == 'failure'
-      # #   run: echo "a failure has occured at TS level"
+    uses: ./.github/workflows/reusable.yml
