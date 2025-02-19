@@ -2,7 +2,7 @@ name: practice
 on: [push]
 jobs:
   j:
-    continue-on-error: true
+    # continue-on-error: true
     runs-on: ubuntu-latest
     steps:
       - name: checkout
