@@ -1,14 +1,21 @@
 name: practice
 on: [push]
 jobs:
-  j:
-    continue-on-error: true
+  version_control_repo:
+    # continue-on-error: true
     runs-on: ubuntu-latest
     steps:
       - name: checkout
         uses: actions/checkout@v2
-      - name: rus
+  use_reusable:
+    runs-on: ubuntu-latest
+    needs: version_control_repo
+    steps:
+      - name: reuse
         uses: ./.github/workflows/reusable.yml
+      # - name: rus
+      #   uses: ./.github/workflows/reusable.yml
+  
       # # - name: exec
       # #   run: tsc main.ts && node main.js
       # - name: file report on installation fault
