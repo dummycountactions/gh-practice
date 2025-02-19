@@ -1,0 +1,19 @@
+name: practice
+on: [push]
+jobs:
+  j:
+    continue-on-error: true
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: install
+        run: npm install
+      - name: exec
+        run: tsc main.ts && node main.js
+      - name: file report on installation fault
+        if: failure() && steps.install.outcome == 'failure'
+        run: echo "a failure has occured"
+      - name: file report on ts runtime fault
+        if: execution() && steps.exec.outcome == 'failure'
+        run: echo "a failure has occured at TS level"
