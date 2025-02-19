@@ -7,13 +7,13 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
-      - name: install
+      - name: mid
         run: npm install
       # - name: exec
       #   run: tsc main.ts && node main.js
       - name: file report on installation fault
-        if: failure()
-        run: echo "a failure has occured"
+        if: failure() && steps.mid.outcome == 'failure'
+        run: echo "a failure has occured for NPM"
       # - name: file report on ts runtime fault
       #   if: steps.exec.conclusion == 'failure'
       #   run: echo "a failure has occured at TS level"
