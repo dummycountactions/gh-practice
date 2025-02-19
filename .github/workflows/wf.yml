@@ -15,5 +15,5 @@ jobs:
         if: failure() && steps.install.outcome == 'failure'
         run: echo "a failure has occured"
       - name: file report on ts runtime fault
-        if: execution() && steps.exec.outcome == 'failure'
+        if: failure() && steps.exec.outcome == 'failure'
         run: echo "a failure has occured at TS level"
