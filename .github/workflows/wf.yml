@@ -9,11 +9,13 @@ jobs:
         uses: actions/checkout@v2
       - name: mid
         run: npm install
-      # - name: exec
-      #   run: tsc main.ts && node main.js
-      - name: file report on installation fault
-        run: echo "a failure has occured for NPM"
-        if: failure() && steps.mid.outcome == 'failure'
-      # - name: file report on ts runtime fault
-      #   if: steps.exec.conclusion == 'failure'
-      #   run: echo "a failure has occured at TS level"
+      - name: rus
+        uses: ./.github/workflows/reusable.yml
+      # # - name: exec
+      # #   run: tsc main.ts && node main.js
+      # - name: file report on installation fault
+      #   run: echo "a failure has occured for NPM"
+      #   if: failure() && steps.mid.outcome == 'failure'
+      # # - name: file report on ts runtime fault
+      # #   if: steps.exec.conclusion == 'failure'
+      # #   run: echo "a failure has occured at TS level"

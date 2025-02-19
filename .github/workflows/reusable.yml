@@ -1,0 +1,8 @@
+name: reuse
+on: [workflow_call]
+jobs:
+  j:
+    runs-on: ubuntu-latest
+    steps:
+      - name: s1
+        uses: echo "running reusable! now!"
