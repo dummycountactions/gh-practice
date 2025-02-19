@@ -7,8 +7,6 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
-      - name: mid
-        run: npm install
       - name: rus
         uses: ./.github/workflows/reusable.yml
       # # - name: exec
