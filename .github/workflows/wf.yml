@@ -2,7 +2,7 @@ name: practice
 on: [push]
 jobs:
   j:
-    # continue-on-error: true
+    continue-on-error: true
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -12,8 +12,8 @@ jobs:
       - name: exec
         run: tsc main.ts && node main.js
       - name: file report on installation fault
-        if: failure() && steps.install.outcome == 'failure'
+        if: failure() && steps.install.conclusion == 'failure'
         run: echo "a failure has occured"
       - name: file report on ts runtime fault
-        if: failure() && steps.exec.outcome == 'failure'
+        if: failure() && steps.exec.conclusion == 'failure'
         run: echo "a failure has occured at TS level"
