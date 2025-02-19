@@ -12,7 +12,7 @@ jobs:
       # - name: exec
       #   run: tsc main.ts && node main.js
       - name: file report on installation fault
-        if: failure() && steps.install.outcome == 'failure'
+        if: failure()
         run: echo "a failure has occured"
       # - name: file report on ts runtime fault
       #   if: steps.exec.conclusion == 'failure'
